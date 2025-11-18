@@ -1,0 +1,507 @@
+{
+  "Uuid": "134c3358-0210-4b1b-88c1-a6c9172041cc",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "find coordinates",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "df5d1c5c-808c-4279-b42e-48d82d706f17-0006ed4b"
+      ],
+      "Id": "8bfba93f64d5442a8080e6f43b456875",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "abcf7bc1156b438a817a192cbd828749",
+          "Name": "Element",
+          "Description": "Os elementos selecionados.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selecione um elemento do modelo no documento."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "2df66b6add9845d289d3d6bfd7cbe899",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "354b2e06b0e84489adf4fa26e054a5fa",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "57c77876a16b4f2c8fc0b23d9199de61",
+          "Name": "geometry[]",
+          "Description": "A localização do elemento",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Revit.Elements.Element.GetLocation",
+      "Replication": "Auto",
+      "Description": "Retorna a localização de um elemento\n\nElement.GetLocation ( ): Geometry"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "685888f8c234438a986feed34b233c5a",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "798925f96a234665ab38ce1608530149",
+          "Name": "boundingBox",
+          "Description": "Autodesk.DesignScript.Geometry.BoundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9906746f79294b1cbaeec52aad0a72cb",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.BoundingBox.MinPoint",
+      "Replication": "Auto",
+      "Description": "O ponto mínimo\n\nBoundingBox.MinPoint: Point"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "WatchWidth": 420.0,
+      "WatchHeight": 40.0,
+      "Id": "83c1d184782345279babc9d6ed6e0fbe",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "6f184125e41d43b7b393f238de3ab842",
+          "Name": "",
+          "Description": "Nó do qual a saída é exibida",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5c1833938d554da7ab06df995b7ee21c",
+          "Name": "",
+          "Description": "Saída do nó",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualiza a saída de um nó"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "WatchWidth": 49.6,
+      "WatchHeight": 200.0,
+      "Id": "d87c1e3f9f644e29a21169b002e59a88",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "5f219eb496f844a6a51b9f07a02489f5",
+          "Name": "",
+          "Description": "Nó do qual a saída é exibida",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7e094e84fcf64b61a80d0e84a7b2ed4a",
+          "Name": "",
+          "Description": "Saída do nó",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualiza a saída de um nó"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "Id": "5daf65475cc84ad9a97f2dd46ce755cf",
+      "NodeType": "CodeBlockNode",
+      "Inputs": [
+        {
+          "Id": "b554a00b0d7c4a48b27f884460ee4dfc",
+          "Name": "min",
+          "Description": "min",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "64b18f11f6424c70843310d3362deac3",
+          "Name": "max",
+          "Description": "max",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d2a5254c3a144d85bd8efdfe7b10dada",
+          "Name": "function",
+          "Description": "(min.X) + (((max.X) - (min.X)) / 2)",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "895cd90f221f466db259fe9d2f5f5e3c",
+          "Name": "function",
+          "Description": "(min.Y) + (((max.Y) - (min.Y)) / 2)",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Permite que o código DesignScript seja criado diretamente",
+      "Code": "min.X + (max.X- min.X)/2;\nmin.Y + (max.Y- min.Y)/2;"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "14183d08094441aa83ae9329f7dc1815",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "514bd32d0d1c40748447361936fb2f96",
+          "Name": "boundingBox",
+          "Description": "Autodesk.DesignScript.Geometry.BoundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5219c9e116604ba1acc2906b98f5f009",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.BoundingBox.MaxPoint",
+      "Replication": "Auto",
+      "Description": "O ponto máximo\n\nBoundingBox.MaxPoint: Point"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "WatchWidth": 80.0,
+      "WatchHeight": 40.0,
+      "Id": "f565b7cf0c0843e0a47204a8f0ab57ff",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "72e093d25f3f4a5da6df12b97f26a9e3",
+          "Name": "",
+          "Description": "Nó do qual a saída é exibida",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b68d73d387bd4cfe9c32933f16ce38e3",
+          "Name": "",
+          "Description": "Saída do nó",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualiza a saída de um nó"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "009445321d624d0fb09e8f20b6f2f66b",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "1fb81050192142ffb165e14e5631631a",
+          "Name": "x",
+          "Description": "Coordenada X\n\ndouble\nValor padrão : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "96325aaedc4f46d790b49ed54fd02263",
+          "Name": "y",
+          "Description": "Coordenada Y\n\ndouble\nValor padrão : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7348170bba104b8586fea365c2579840",
+          "Name": "Point",
+          "Description": "Ponto criado usando as coordenadas",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double",
+      "Replication": "Auto",
+      "Description": "Forme um ponto no plano XY com as 2 coordenadas cartesianas fornecidas. O componente Z é 0.\n\nPoint.ByCoordinates (x: double = 0, y: double = 0): Point"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "abcf7bc1156b438a817a192cbd828749",
+      "End": "354b2e06b0e84489adf4fa26e054a5fa",
+      "Id": "5a8be0676a9948439cb5a076e0018d4a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "abcf7bc1156b438a817a192cbd828749",
+      "End": "798925f96a234665ab38ce1608530149",
+      "Id": "6373a4de705f40c4a8b25f73b88da87f",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "57c77876a16b4f2c8fc0b23d9199de61",
+      "End": "6f184125e41d43b7b393f238de3ab842",
+      "Id": "af01b0aad8854e5da2f38d9db2f31094",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9906746f79294b1cbaeec52aad0a72cb",
+      "End": "5f219eb496f844a6a51b9f07a02489f5",
+      "Id": "a102354652d249d1a32ad452e00d4f3d",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9906746f79294b1cbaeec52aad0a72cb",
+      "End": "b554a00b0d7c4a48b27f884460ee4dfc",
+      "Id": "e39a60f1c0484155b29bed3b96a9e632",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "d2a5254c3a144d85bd8efdfe7b10dada",
+      "End": "1fb81050192142ffb165e14e5631631a",
+      "Id": "5d6892a38f1a4a38abe39883cd4a0f57",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "895cd90f221f466db259fe9d2f5f5e3c",
+      "End": "96325aaedc4f46d790b49ed54fd02263",
+      "Id": "32e364999ac44181a73195fa4f601ea9",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "5219c9e116604ba1acc2906b98f5f009",
+      "End": "72e093d25f3f4a5da6df12b97f26a9e3",
+      "Id": "3295176949044860b1e2ad67c1589aab",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "5219c9e116604ba1acc2906b98f5f009",
+      "End": "64b18f11f6424c70843310d3362deac3",
+      "Id": "affef97a0f664f0ba514de3b6e1d3ee1",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "EnableLegacyPolyCurveBehavior": true,
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Propriedades",
+      "Version": "3.6",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "9.1",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "Nenhum",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "3.6.0.9395",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Visualização do plano de fundo",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "8bfba93f64d5442a8080e6f43b456875",
+        "Name": "Select Model Element",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 295.2000000000001,
+        "Y": 276.79999999999995
+      },
+      {
+        "Id": "2df66b6add9845d289d3d6bfd7cbe899",
+        "Name": "Element.GetLocation",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 612.438398658174,
+        "Y": 181.86396980891618
+      },
+      {
+        "Id": "685888f8c234438a986feed34b233c5a",
+        "Name": "BoundingBox.MinPoint",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 729.5999999999997,
+        "Y": 479.20000000000005
+      },
+      {
+        "Id": "83c1d184782345279babc9d6ed6e0fbe",
+        "Name": "Watch",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1033.6,
+        "Y": 189.60000000000005
+      },
+      {
+        "Id": "d87c1e3f9f644e29a21169b002e59a88",
+        "Name": "Watch",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1124.0,
+        "Y": 630.4000000000001
+      },
+      {
+        "Id": "5daf65475cc84ad9a97f2dd46ce755cf",
+        "Name": "Code Block",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1230.4,
+        "Y": 329.6
+      },
+      {
+        "Id": "14183d08094441aa83ae9329f7dc1815",
+        "Name": "BoundingBox.MaxPoint",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 715.9999999999998,
+        "Y": 701.6000000000001
+      },
+      {
+        "Id": "f565b7cf0c0843e0a47204a8f0ab57ff",
+        "Name": "Watch",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1082.8,
+        "Y": 783.6
+      },
+      {
+        "Id": "009445321d624d0fb09e8f20b6f2f66b",
+        "Name": "Point.ByCoordinates",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1758.3161371334472,
+        "Y": 371.340808873099
+      }
+    ],
+    "Annotations": [],
+    "X": -406.9457536809883,
+    "Y": -43.28792586820123,
+    "Zoom": 0.9100638039314392
+  }
+}
